@@ -3,6 +3,4 @@ dist
 pkg
 target/
 Cargo.lock
-package-lock.json
 .idea/
-
