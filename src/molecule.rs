@@ -14,7 +14,8 @@ impl Molecule {
     /// Construct a molecule form a set of xyz file lines
     pub(crate) fn from_xyz_file(file_lines: &str) -> Self{
 
-        let lines = file_lines.replace("\r", "").split("\n");
+        let file_lines_stripped = file_lines.replace("\r", "");
+        let lines = file_lines_stripped.split("\n");
         let mut molecule = Molecule::default();
         let mut n_atoms: usize = 0;
 
@@ -96,8 +97,8 @@ mod tests{
     #[test]
     fn test_dos_and_unix_line_returns_are_parsed(){
         assert_eq!(
-            Molecule::from_xyz_file("2\n\nH  0.0  1.0  2.0"),
-            Molecule::from_xyz_file("2\r\n\r\nH  0.0  1.0  2.0"),
+            Molecule::from_xyz_file("1\n\nH  0.0  1.0  2.0"),
+            Molecule::from_xyz_file("1\r\n\r\nH  0.0  1.0  2.0"),
         );
     }
 }
