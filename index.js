@@ -15,7 +15,7 @@
   \******************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const wasm = Promise.all(/*! import() */[__webpack_require__.e(\"vendors-node_modules_text-encoding_index_js\"), __webpack_require__.e(\"pkg_index_js\")]).then(__webpack_require__.bind(__webpack_require__, /*! ./pkg */ \"./pkg/index.js\"));\n\ndocument.getElementById(\"file_input\")\n    .addEventListener('change', render_molecule);\n\nfunction render_molecule(){\n    let file = this.files[0];\n    let reader = new FileReader();\n\n    reader.readAsText(file);\n\n    reader.onload = function() {\n        wasm.then(m => m.render_molecule(reader.result))\n            .catch(console.error);\n    };\n\n    reader.onerror = function() {\n        console.log(reader.error);\n    };\n\n}\n\n\n//# sourceURL=webpack:///./index.js?");
+eval("const wasm = Promise.all(/*! import() */[__webpack_require__.e(\"vendors-node_modules_text-encoding_index_js\"), __webpack_require__.e(\"pkg_index_js\")]).then(__webpack_require__.bind(__webpack_require__, /*! ./pkg */ \"./pkg/index.js\"));\n\ndocument.getElementById(\"file_input\")\n    .addEventListener('change', render_molecule);\n\nfunction render_molecule(){\n    let file = this.files[0];\n    let reader = new FileReader();\n    reader.readAsText(file);\n\n    reader.onload = function() {\n        wasm.then(m => m.render_molecule(reader.result))\n            .catch(alert);\n    };\n\n    reader.onerror = function() {\n        alert(reader.error);\n    };\n}\n\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ })
 
