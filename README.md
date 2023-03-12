@@ -1,4 +1,6 @@
-# mol-wasm
+# https://t-young31.github.io/mol-wasm/
+
+Molecular visualisation with [web assembly](https://webassembly.org/) from .xyz files.
 
 ## Demo
 
