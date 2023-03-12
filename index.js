@@ -6,16 +6,14 @@ document.getElementById("file_input")
 function render_molecule(){
     let file = this.files[0];
     let reader = new FileReader();
-
     reader.readAsText(file);
 
     reader.onload = function() {
         wasm.then(m => m.render_molecule(reader.result))
-            .catch(console.error);
+            .catch(alert);
     };
 
     reader.onerror = function() {
-        console.log(reader.error);
+        alert(reader.error);
     };
-
 }

@@ -8,6 +8,8 @@ pub(crate) struct Bond{
 }
 
 impl PartialEq for Bond{
+
+    /// Is this bond idential to another?
     fn eq(&self, other: &Self) -> bool {
         (self.i == other.i && self.j == other.j) || (self.i == other.j && self.j == other.i)
     }

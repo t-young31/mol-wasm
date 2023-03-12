@@ -37,6 +37,10 @@ impl Molecule {
         if n_atoms != molecule.atoms.len() {
             panic!("Number or atoms declared not equal to that provided")
         }
+        else if n_atoms == 0 {
+            panic!("Failed to parse the xyz file. No atoms found")
+        }
+
 
         molecule.set_bonds();
         molecule
