@@ -3,7 +3,7 @@
 ## Demo
 
 <p align="center">
-  <img src=".github/common/demo.gjf" alt="Particle cluster" width="700">
+  <img src=".github/common/demo.gif" alt="Particle cluster" width="700">
 </p>
 
 ## Serve locally 
