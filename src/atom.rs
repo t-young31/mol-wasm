@@ -52,7 +52,7 @@ impl Atom {
     pub fn maximal_valence(&self) -> usize{
 
         match MAXIMAL_VALENCIES.get(self.index()) {
-            None => 6,  // Default to 6
+            None => 6,
             Some(v) => v.clone()
         }
     }
@@ -63,10 +63,15 @@ impl Atom {
 
         let tolerance: f32 = 1.3;  // Relative tolerance on whether a bond could be present
 
-        let r = self.position.distance_to(&atom.position);
+        let r = self.distance_to(&atom);
         let is_identical_atom = r < 1E-8;
 
         !is_identical_atom && r < tolerance * (self.covalent_radius() + atom.covalent_radius())
+    }
+
+    /// Calculate the distance to another atom, in Å
+    pub fn distance_to(&self, other: &Atom) -> f32 {
+        self.position.distance_to(&other.position)
     }
 
     /// Retrieve the atomic neighbours to this one in a molecule
@@ -74,8 +79,8 @@ impl Atom {
 
         let mut neighbours: Vec<Neighbour> = Vec::new();
         for (i, atom) in molecule.atoms.iter().enumerate(){
-            if atom != self && self.could_be_bonded_to(atom){
-                let distance = atom.position.distance_to(&atom.position);
+            if self.could_be_bonded_to(atom){
+                let distance = self.distance_to(&atom);
                 neighbours.push(Neighbour{distance, idx: i});
             }
         }

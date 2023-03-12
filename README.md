@@ -1,6 +1,12 @@
 # mol-wasm
 
-Serve locally 
+## Demo
+
+<p align="center">
+  <img src=".github/common/demo.gjf" alt="Particle cluster" width="700">
+</p>
+
+## Serve locally 
 ```bash
 npm install
 npm run build
